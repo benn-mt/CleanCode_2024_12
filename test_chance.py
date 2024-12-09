@@ -9,8 +9,8 @@ def test_chances_are_equal_if_created_with_equal_likelihoods():
     assert not Chance(1) == Chance(0)
 
 def test_not_is_inverse_of_probablility():
-    assert FIFTY_FIFTY == FIFTY_FIFTY.Not()
-    assert CERTAIN == IMPOSSIBLE.Not()
-    assert IMPOSSIBLE == IMPOSSIBLE.Not().Not()
-    assert Chance(0.4).Not() == Chance(0.6)
-    assert Chance(1.0 / 3.0).Not() == Chance(2.0 / 3.0)
+    assert FIFTY_FIFTY == FIFTY_FIFTY.not_()
+    assert CERTAIN == IMPOSSIBLE.not_()
+    assert IMPOSSIBLE == IMPOSSIBLE.not_().not_()
+    assert Chance(0.4).not_() == Chance(0.6)
+    assert Chance(1.0 / 3.0).not_() == Chance(2.0 / 3.0)

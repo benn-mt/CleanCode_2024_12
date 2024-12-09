@@ -9,5 +9,5 @@ class Chance:
     def __eq__(self, other):
         return abs(self._likelihood - other._likelihood) < self.__THRESHOLD
 
-    def Not(self):
+    def not_(self):
         return Chance(self.__CERTAIN_LIKELIHOOD - self._likelihood)
