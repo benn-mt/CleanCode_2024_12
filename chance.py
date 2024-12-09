@@ -4,4 +4,4 @@ class Chance:
 
     # override == operator
     def __eq__(self, other):
-        return True
+        return self._likelihood == other._likelihood
