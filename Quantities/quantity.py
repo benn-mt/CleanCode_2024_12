@@ -5,4 +5,4 @@ class Quantity:
 
     # override == operator
     def __eq__(self, other):
-        return self._amount == other._amount and self._unit == other._unit
+        return self._unit.amountInBaseUnit(self._amount) == other._unit.amountInBaseUnit(other._amount)
