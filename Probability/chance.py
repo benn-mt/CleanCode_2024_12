@@ -11,3 +11,9 @@ class Chance:
 
     def not_(self):
         return Chance(self.__CERTAIN_LIKELIHOOD - self._likelihood)
+    
+    def and_(self, other):
+        return Chance(self._likelihood * other._likelihood)
+    
+    def __str__(self):
+     return "Prob: %.128f" % self._likelihood
