@@ -19,3 +19,8 @@ def test_example_from_exercise():
     assert Quantity(1, Volumes.PINT) == Quantity(2, Volumes.CUP)
     assert Quantity(1, Volumes.QUART) == Quantity(2, Volumes.PINT)
     assert Quantity(1, Volumes.GALLON) == Quantity(4, Volumes.QUART)
+
+def test_can_be_added_together():
+    assert Quantity(1, Volumes.TEASPOON).add(Quantity(0, Volumes.TEASPOON)) == Quantity(1, Volumes.TEASPOON)
+    assert Quantity(1, Volumes.TEASPOON) + (Quantity(0, Volumes.TEASPOON)) == Quantity(1, Volumes.TEASPOON)
+    assert Quantity(1, Volumes.TEASPOON) + (Quantity(1, Volumes.TEASPOON)) == Quantity(2, Volumes.TEASPOON)
