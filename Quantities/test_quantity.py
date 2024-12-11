@@ -28,4 +28,4 @@ def test_measurements_with_same_unit_can_be_added_together():
 
 def test_measurements_with_different_unit_can_be_added_together():
     assert Quantity(1, Volumes.TEASPOON).add(Quantity(0, Volumes.TABLESPOON)) == Quantity(1, Volumes.TEASPOON)
-    #assert Quantity(1, Volumes.TEASPOON).add(Quantity(1, Volumes.TABLESPOON)) == Quantity(4, Volumes.TEASPOON)
+    assert Quantity(1, Volumes.TEASPOON).add(Quantity(1, Volumes.TABLESPOON)) == Quantity(4, Volumes.TEASPOON)

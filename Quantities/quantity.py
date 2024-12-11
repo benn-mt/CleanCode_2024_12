@@ -11,4 +11,4 @@ class Quantity:
         return self.add(other)
     
     def add(self, other):
-        return Quantity(self._amount + other._amount, self._unit)
+        return Quantity(self._amount + other._unit.amountInUnit(other._amount, self._unit), self._unit)
