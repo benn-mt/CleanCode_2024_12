@@ -1,5 +1,7 @@
+import pytest
 from quantity import Quantity
 from volumes import Volumes
+from lengths import Lengths
 
 def test_quantities_of_same_unit_and_amount_are_equal():
     assert Quantity(1, Volumes.TEASPOON) == Quantity(1, Volumes.TEASPOON) 
@@ -29,3 +31,10 @@ def test_measurements_with_same_unit_can_be_added_together():
 def test_measurements_with_different_unit_can_be_added_together():
     assert Quantity(1, Volumes.TEASPOON).add(Quantity(0, Volumes.TABLESPOON)) == Quantity(1, Volumes.TEASPOON)
     assert Quantity(1, Volumes.TEASPOON).add(Quantity(1, Volumes.TABLESPOON)) == Quantity(4, Volumes.TEASPOON)
+
+def test_measurements_with_incompatible_units_can_not_be_added_together():
+    with pytest.raises(Exception) as e_info:
+        Quantity(1, Volumes.TEASPOON).add(Quantity(1, Volumes.INCH))
+
+def test_measurements_with_incompatible_units_are_not_equal():
+    assert Quantity(1, Volumes.TEASPOON) != Quantity(1, Lengths.INCH)
