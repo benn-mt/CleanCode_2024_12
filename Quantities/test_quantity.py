@@ -20,7 +20,12 @@ def test_example_from_exercise():
     assert Quantity(1, Volumes.QUART) == Quantity(2, Volumes.PINT)
     assert Quantity(1, Volumes.GALLON) == Quantity(4, Volumes.QUART)
 
-def test_can_be_added_together():
+def test_measurements_with_same_unit_can_be_added_together():
     assert Quantity(1, Volumes.TEASPOON).add(Quantity(0, Volumes.TEASPOON)) == Quantity(1, Volumes.TEASPOON)
     assert Quantity(1, Volumes.TEASPOON) + (Quantity(0, Volumes.TEASPOON)) == Quantity(1, Volumes.TEASPOON)
     assert Quantity(1, Volumes.TEASPOON) + (Quantity(1, Volumes.TEASPOON)) == Quantity(2, Volumes.TEASPOON)
+    assert Quantity(3, Volumes.TABLESPOON) + (Quantity(2, Volumes.TABLESPOON)) == Quantity(5, Volumes.TABLESPOON)
+
+def test_measurements_with_different_unit_can_be_added_together():
+    assert Quantity(1, Volumes.TEASPOON).add(Quantity(0, Volumes.TABLESPOON)) == Quantity(1, Volumes.TEASPOON)
+    #assert Quantity(1, Volumes.TEASPOON).add(Quantity(1, Volumes.TABLESPOON)) == Quantity(4, Volumes.TEASPOON)

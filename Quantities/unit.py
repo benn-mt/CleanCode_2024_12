@@ -9,5 +9,8 @@ class Unit:
     def amountInBaseUnit(self, amountInThisUnit):
         return amountInThisUnit * self._ratioToBaseUnit
     
+    def amountInUnit(self, amountInThisUnit, otherUnit):
+        return amountInThisUnit / otherUnit._ratioToBaseUnit * self._ratioToBaseUnit
+    
     def s(self, amount):
         return Quantity(amount, self)
